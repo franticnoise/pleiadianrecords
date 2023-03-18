@@ -1,0 +1,27 @@
+---
+import { Icon } from "astro-icon";
+
+export interface Props {
+  title: string;
+  artist: string;
+  icon: string;
+  content: string;
+  image: string;
+  url: string;
+  releasedate: string;
+}
+
+const { title, artist, releasedate, image, url, icon, content } = Astro.props;
+---
+
+<section id="releases" class="py-14 pt-4 sm:flex items-center sm:justify-evenly text-center sm:text-left">
+  <!--<Icon name={icon} class="overflow-hidden inline-flex sm:m-8 w-28 h-28" />-->
+  <a href={url} target="_blank"><img src={image} class="w-52 rounded-xl inline-flex  drop-shadow-xl"></a>
+  <header class="mt-8 max-w-lg sm:my-0 mx-auto sm:mx-0">
+    <h1 class="sm:text-1xl text-sm  mb-1 dark:text-white pt-0">{releasedate}</h1>
+   <h1 class="sm:text-2xl text-1xl font-bold mb-1 dark:text-white pb-0">{artist}</h1>
+    <h1 class="sm:text-4xl text-3xl font-bold mb-4 dark:text-white pt-0">{title}</h1>
+    
+    <p class="max-w-10 font-normal leading-7 dark:text-zinc-300 sm:max-w-sm md:max-w-xl">{content}</p>
+  </header>
+</section>
